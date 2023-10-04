@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="./layout/default.xhtml">
+
+
+    <ui:define name="top">
+
+    </ui:define>
+
+    <ui:define name="left">
+
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h:head>
+            <title>Login Page</title>
+
+            <style type="text/css">
+                body {
+                    background-color: #2bb8bd;
+                    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+                    color: #fff;
+                }
+
+                .container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                .blur {
+                    filter: blur(5px);
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .layer {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: white;
+                    opacity: 0.01;
+                }
+
+                .login-panel {
+                    background-color: #2bb8bd;
+                    border-radius: 8px;
+                    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+                    padding: 20px;
+                    margin: 0 auto;
+                    width: 600px;
+                    text-align: center;
+                    position: absolute;
+                    z-index: 1;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .login-header {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                    color: #fff;
+                }
+
+                .login-form {
+                    margin-top: 20px;
+                }
+
+                .ui-inputtext {
+                    border-radius: 5px;
+                    border: none;
+                    background-color: #fff;
+                    padding: 10px;
+                    font-size: 16px;
+                    color: #444;
+                    width: 90%;
+                    margin-bottom: 10px;
+                }
+
+                .ui-inputtext:focus {
+                    background-color: #fff;
+                    color: #444;
+                    box-shadow: none;
+                }
+
+                .ui-password {
+                    margin-top: 10px;
+                }
+
+                .ui-commandbutton {
+                    background-color: #2bb8bd;
+                    border-radius: 5px;
+                    border: none;
+                    color: #fff;
+                    font-size: 16px;
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    text-transform: uppercase;
+                    transition: background-color 0.3s ease;
+                    width: 50%;
+                }
+
+                .ui-commandbutton:hover {
+                    background-color: #fff;
+                    color: #2bb8bd;
+                }
+
+                .ui-message {
+                    background-color: #2bb8bd;
+                    border: none;
+                    color: #fff;
+                    margin-top: 10px;
+                    padding: 10px 20px;
+                }
+
+                .ui-title {
+                    color: #fff;
+                    text-align: left;
+                }
+                .layer {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: white;
+                    opacity: 0.01;  
+                }
+                .overlay {
+                    position: absolute;
+                    top: 50%;
+                    left: 52%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                    width: 300px;
+                    height: 200px;
+                    border-radius: 50%;
+                    border: 5px solid white;
+                }
+            </style>
+        </h:head>
+
+        <div class="container">
+            <img src="resources/images/library_wallpaper.jpeg" alt="" class="blur"/>
+            <div class="layer"></div>
+
+
+            <div class="login-panel">
+                <b><div class="login-header">STAFF LOGIN</div></b>
+
+                <h:form class="login-form">
+                    <p:outputLabel for="username" value="Username: " styleClass="ui-title" style="text-align: left"/> 
+                    <p:inputText id="username" value="#{authenticationManaged.userName}" placeholder="Username" required="true" requiredMessage="Username is required"/>
+                    <p:message for="username"/>
+
+                    <p:outputLabel for="password" value="Password: " styleClass="ui-title"/>
+                    <p:password id="password" value="#{authenticationManaged.password}" placeholder="Password" styleClass="ui-inputtext" required="true" requiredMessage="Password is required"/>
+                    <p:message for="password"/>
+                    <p:commandButton value="Login" action="#{authenticationManaged.login}" class="ui-commandbutton"/>
+                    <p:messages id="messages" showDetail="true" closable="true" redisplay="true" globalOnly="true" /><br/>
+                </h:form>
+            </div>
+
+        </div>
+
+
+
+
+
+    </ui:define>
+
+
+
+</ui:composition>
